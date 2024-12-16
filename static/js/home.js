@@ -16,7 +16,10 @@ function get_tokens() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(body)
-    }).then((response) => {return response.json()})
-    .then((data) => container.innerText = JSON.stringify(data, null, 2));
-
+    })
+    .then((response) => {return response.json()})
+    .then((data) => {
+        container.innerText = JSON.stringify(data, null, 2);
+        console.log(data);
+    });
 }

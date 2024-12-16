@@ -5,18 +5,15 @@ from pydantic import BaseModel, Field
 
 app = FastAPI()
 
-# Укажите разрешенные источники без подстановочных знаков
+
 origins = [
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-    "http://localhost:5500",
     "http://127.0.0.1:5500"
 ]
 
-# Настройка CORS
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # Используем список origins
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
